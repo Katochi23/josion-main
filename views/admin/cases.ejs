@@ -1,0 +1,39 @@
+<%- include('_head', { title: 'Case studies' }) %>
+<%- include('_shell') %>
+  <div class="adm-head">
+    <div>
+      <h1>Case studies</h1>
+      <p>These fill the rotating hero, the work grid and the detail pop-up. The order here is the order on the page.</p>
+    </div>
+    <a class="btn btn-fill btn-sm" href="/admin/cases/new">Add case study</a>
+  </div>
+
+  <div class="rows">
+    <% if (!cases.length) { %>
+      <p class="empty">No case studies yet. Add one and it appears in the hero straight away.</p>
+    <% } %>
+    <% cases.forEach(function(c, i){ %>
+      <div class="row">
+        <div class="row-thumb">
+          <% if (c.image) { %><img src="<%= c.image %>" alt=""><% } else { %><span>Generated<br>artwork</span><% } %>
+        </div>
+        <div>
+          <h3><%= c.title %></h3>
+          <p><%= c.client %> · <%= c.cat %> · <%= c.metric %> <%= c.metricLabel %></p>
+        </div>
+        <div class="row-acts">
+          <form method="post" action="/admin/cases/<%= c.id %>/move">
+            <input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="dir" value="up">
+            <button class="mini" <%= i===0 ? 'disabled' : '' %> aria-label="Move up">&uarr;</button></form>
+          <form method="post" action="/admin/cases/<%= c.id %>/move">
+            <input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="dir" value="down">
+            <button class="mini" <%= i===cases.length-1 ? 'disabled' : '' %> aria-label="Move down">&darr;</button></form>
+          <a class="mini" href="/admin/cases/<%= c.id %>/edit">Edit</a>
+          <form method="post" action="/admin/cases/<%= c.id %>/delete" onsubmit="return confirm('Delete “<%= c.title %>”? This cannot be undone.')">
+            <input type="hidden" name="_csrf" value="<%= csrf %>">
+            <button class="mini mini-bad" type="submit">Delete</button></form>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+<%- include('_foot') %>

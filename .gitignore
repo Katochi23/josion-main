@@ -1,0 +1,6 @@
+node_modules
+.env
+data/content.json.tmp
+public/uploads/*.opt
+# public/uploads/ is committed on purpose: data/content.json points at these
+# files, so ignoring them would push content full of broken images.

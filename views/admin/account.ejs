@@ -1,0 +1,37 @@
+<%- include('_head', { title: 'Account' }) %>
+<%- include('_shell') %>
+  <div class="adm-head">
+    <div>
+      <h1>Account</h1>
+      <p>Change the password you use to sign in here. It takes effect immediately — no redeploy, no developer.</p>
+    </div>
+  </div>
+
+  <% if (fromEnv) { %>
+    <div class="fset" style="margin-bottom:22px">
+      <h2>Still on the setup password</h2>
+      <p class="hint">You are signing in with the password set in the server's <code>.env</code> file. Change it here and the new one is stored with your content instead, so you can change it yourself from now on.</p>
+    </div>
+  <% } %>
+
+  <form class="form" method="post" action="/admin/account/password">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <div class="fset">
+      <h2>Change password</h2>
+      <div class="f">
+        <label for="current">Current password</label>
+        <input type="password" id="current" name="current" autocomplete="current-password" required>
+      </div>
+      <div class="f">
+        <label for="next">New password</label>
+        <input type="password" id="next" name="next" autocomplete="new-password" minlength="10" required>
+        <p class="hint">At least 10 characters. A short phrase you will actually remember beats a short scramble you will not.</p>
+      </div>
+      <div class="f">
+        <label for="confirm">New password again</label>
+        <input type="password" id="confirm" name="confirm" autocomplete="new-password" minlength="10" required>
+      </div>
+    </div>
+    <div class="acts"><button class="btn btn-fill" type="submit">Change password</button></div>
+  </form>
+<%- include('_foot') %>

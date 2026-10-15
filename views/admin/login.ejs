@@ -1,0 +1,18 @@
+<%- include('_head', { title: 'Sign in' }) %>
+<div class="login">
+  <form class="login-card" method="post" action="/admin/login">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <h1>JOSION admin</h1>
+    <% notice.forEach(function(m){ %><div class="flash flash-ok"><%= m %></div><% }); %>
+    <% problem.forEach(function(m){ %><div class="flash flash-bad"><%= m %></div><% }); %>
+    <% if (!configured) { %>
+      <div class="flash flash-bad">No password is set yet. Add <code>ADMIN_PASSWORD_HASH</code> to your <code>.env</code>, then restart the server.</div>
+    <% } %>
+    <div class="f">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" autocomplete="current-password" required autofocus>
+    </div>
+    <div class="acts"><button class="btn btn-fill" type="submit">Sign in</button></div>
+  </form>
+</div>
+</body></html>

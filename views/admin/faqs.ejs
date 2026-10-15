@@ -1,0 +1,36 @@
+<%- include('_head', { title: 'FAQ' }) %>
+<%- include('_shell') %>
+  <div class="adm-head">
+    <div>
+      <h1>FAQ</h1>
+      <p>Answers to the questions that come up on every call. Put the ones that lose you deals at the top — the first is open by default.</p>
+    </div>
+    <a class="btn btn-fill btn-sm" href="/admin/faqs/new">Add question</a>
+  </div>
+
+  <div class="rows">
+    <% if (!faqs.length) { %>
+      <p class="empty">No questions yet. The FAQ section stays hidden until you add one.</p>
+    <% } %>
+    <% faqs.forEach(function(f, i){ %>
+      <div class="row" style="grid-template-columns:minmax(0,1fr) auto">
+        <div>
+          <h3><%= f.q %></h3>
+          <p><%= f.a.length > 110 ? f.a.slice(0, 110) + '…' : f.a %></p>
+        </div>
+        <div class="row-acts">
+          <form method="post" action="/admin/faqs/<%= f.id %>/move">
+      <input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="dir" value="up">
+            <button class="mini" <%= i===0 ? 'disabled' : '' %> aria-label="Move up">&uarr;</button></form>
+          <form method="post" action="/admin/faqs/<%= f.id %>/move">
+      <input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="dir" value="down">
+            <button class="mini" <%= i===faqs.length-1 ? 'disabled' : '' %> aria-label="Move down">&darr;</button></form>
+          <a class="mini" href="/admin/faqs/<%= f.id %>/edit">Edit</a>
+          <form method="post" action="/admin/faqs/<%= f.id %>/delete" onsubmit="return confirm('Delete this question?')">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+            <button class="mini mini-bad" type="submit">Delete</button></form>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+<%- include('_foot') %>

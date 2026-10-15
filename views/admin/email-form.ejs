@@ -1,0 +1,35 @@
+<%- include('_head', { title: mode === 'new' ? 'New email design' : 'Edit email design' }) %>
+<%- include('_shell') %>
+  <div class="adm-head">
+    <div>
+      <h1><%= mode === 'new' ? 'New email design' : 'Edit email design' %></h1>
+      <p>A full-length screenshot is ideal. Without one, the site falls back to a coded mock-up for the seeded examples.</p>
+    </div>
+    <a class="mini" href="/admin/emails">Back to list</a>
+  </div>
+
+  <form class="form" method="post" enctype="multipart/form-data"
+        action="<%= mode === 'new' ? '/admin/emails' : '/admin/emails/' + item.id %>">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <div class="fset">
+      <h2>Details</h2>
+      <div class="f"><label for="subject">Subject line</label>
+        <input type="text" id="subject" name="subject" value="<%= item.subject || '' %>" required placeholder="You're in. Here's where to start."></div>
+      <div class="f"><label for="cat">Campaign type</label>
+        <input type="text" id="cat" name="cat" value="<%= item.cat || '' %>" placeholder="Welcome series"></div>
+      <div class="f"><label for="desc">Short description</label>
+        <textarea id="desc" name="desc" placeholder="Email one of five. Sets expectations and earns the second open."><%= item.desc || '' %></textarea></div>
+    </div>
+
+    <div class="fset">
+      <h2>Screenshots</h2>
+      <%- include('_drop', { name: 'image', label: 'Desktop version', value: item.image || '', hint: 'Full-length screenshot, around 600px wide.' }) %>
+      <%- include('_drop', { name: 'mobileImage', label: 'Mobile version', value: item.mobileImage || '', hint: 'Optional. Shown when a visitor switches the preview to mobile.' }) %>
+    </div>
+
+    <div class="acts">
+      <button class="btn btn-fill" type="submit"><%= mode === 'new' ? 'Add design' : 'Save changes' %></button>
+      <a class="mini" href="/admin/emails">Cancel</a>
+    </div>
+  </form>
+<%- include('_foot') %>

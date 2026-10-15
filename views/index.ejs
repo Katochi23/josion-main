@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JOSION Marketing Agency — Email, Automation, Ecommerce Growth</title>
+<% if (settings.favicon || settings.logo) { %><link rel="icon" href="<%= settings.favicon || settings.logo %>"><% } %>
+<meta name="description" content="JOSION is an email and lifecycle marketing agency. We turn owned audiences into predictable revenue for ecommerce brands.">
+<meta name="theme-color" content="#04060B">
+<% if (canonical) { %><link rel="canonical" href="<%= canonical %>/"><% } %>
+<meta property="og:type" content="website">
+<meta property="og:title" content="JOSION Marketing Agency — Email, Automation, Ecommerce Growth">
+<meta property="og:description" content="We build the email and automation systems that turn an audience you already paid for into revenue you can forecast.">
+<% if (settings.logo) { %><meta property="og:image" content="<%= canonical %><%= settings.logo %>"><% } %>
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json"><%- scriptJson({
+  "@context":"https://schema.org","@type":"ProfessionalService",
+  name:"JOSION Marketing Agency",
+  description:"Email and lifecycle marketing agency for ecommerce brands.",
+  url: canonical || undefined,
+  image: settings.logo && canonical ? canonical + settings.logo : undefined,
+  email: settings.email || undefined,
+  telephone: settings.whatsapp ? '+' + settings.whatsapp : undefined,
+  areaServed:"Worldwide",
+  sameAs:[settings.social.li, settings.social.ig, settings.social.x].filter(Boolean)
+}) %></script>
+<script>
+/* Resolve the theme before first paint so there is no flash. */
+(function(){
+  var t=null;
+  try{ t=localStorage.getItem('josion-theme'); }catch(e){}
+  if(t!=='light'&&t!=='dark'){
+    t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';
+  }
+  document.documentElement.setAttribute('data-theme',t);
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css?v=<%= assetV %>">
+</head>
+<body>
+
+<!-- ============ preloader ============ -->
+<div class="pre" id="pre" role="status" aria-label="Loading JOSION">
+  <div class="pre-inner">
+    <div class="pre-mark"><% if (settings.logo) { %><img class="brand-on-light" src="<%= settings.logo %>" alt=""><img class="brand-on-dark" src="<%= settings.logoDark || settings.logo %>" alt=""><% } else { %><span class="brand-type">JOSION</span><% } %></div>
+    <div class="pre-bar"><i id="preBar"></i></div>
+    <div class="pre-meta"><span>Josion Marketing Agency</span><span id="preNum">0</span></div>
+  </div>
+</div>
+
+<div class="rail" aria-hidden="true"><span class="rail-cap"></span></div>
+
+<!-- ============ nav ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#home" class="nav-logo" aria-label="JOSION home">
+      <span class="brand">
+      <% if (settings.logo) { %>
+        <img class="brand-img brand-on-light" src="<%= settings.logo %>" alt="JOSION Marketing Agency">
+        <img class="brand-img brand-on-dark" src="<%= settings.logoDark || settings.logo %>" alt="" aria-hidden="true">
+      <% } else { %>
+        <span class="brand-type">JOSION<small>Email &middot; Automation &middot; Growth</small></span>
+      <% } %>
+    </span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#process">Process</a>
+      <a href="#work">Work</a>
+      <a href="#emails">Email designs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="tt" id="themeToggle" aria-pressed="false" aria-label="Switch to light theme">
+      <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.3M12 19.1v2.3M4.4 4.4l1.7 1.7M17.9 17.9l1.7 1.7M2.6 12h2.3M19.1 12h2.3M4.4 19.6l1.7-1.7M17.9 6.1l1.7-1.7"/>
+      </svg>
+      <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20.8 13.4A8.6 8.6 0 1110.6 3.2a6.9 6.9 0 0010.2 10.2z"/>
+      </svg>
+    </button>
+    <span class="mag" data-mag><button class="btn btn-fill btn-sm" data-book><%= copy.hero.ctaPrimary %></button></span>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="mmenu" aria-label="Open menu"><span></span></button>
+  </div>
+</header>
+
+<div class="mmenu" id="mmenu" aria-hidden="true">
+  <a class="ml" href="#home">Home</a>
+  <a class="ml" href="#about">About</a>
+  <a class="ml" href="#process">Process</a>
+  <a class="ml" href="#work">Work</a>
+  <a class="ml" href="#emails">Email designs</a>
+  <a class="ml" href="#contact">Contact</a>
+  <div class="mfoot">
+    <button class="btn btn-fill" data-book><%= copy.hero.ctaPrimary %></button>
+    <a class="btn btn-ghost" data-wa href="#">Chat on WhatsApp</a>
+  </div>
+  <p class="mmeta">Replies within one business day.</p>
+</div>
+
+<main id="home">
+<!-- ============ hero ============ -->
+<section class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-top">
+      <div>
+        <h1 class="hero-h">
+          <span class="l1"><%= copy.hero.headline %></span>
+          <span class="l2"><span id="tw"></span><span class="tw-caret" aria-hidden="true"></span></span>
+        </h1>
+        <p class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"><%= copy.hero.headline %> <%= copy.hero.phrases[0] || "" %></p>
+      </div>
+      <div class="hero-side">
+        <p class="lede"><%= copy.hero.lede %></p>
+        <div class="hero-cta">
+          <span class="mag" data-mag><button class="btn btn-fill btn-lg" data-book><i></i><%= copy.hero.ctaPrimary %></button></span>
+          <a class="btn btn-ghost btn-lg" href="#work"><%= copy.hero.ctaSecondary %></a>
+        </div>
+        <% if (copy.hero.note) { %><p class="hero-note"><%= copy.hero.note %></p><% } %>
+      </div>
+    </div>
+
+    <div class="orbit-shell">
+      <div class="orbit" id="orbit" role="region" aria-roledescription="carousel" aria-label="Case studies" tabindex="0">
+        <div class="stage" id="stage"></div>
+      </div>
+      <div class="orbit-bar">
+        <div class="o-dots" id="oDots" role="tablist" aria-label="Choose case study"></div>
+        <span class="o-count"><b id="oNow">01</b> / <span id="oAll">05</span></span>
+        <button class="o-btn" id="oPrev" aria-label="Previous case study">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="o-btn" id="oNext" aria-label="Next case study">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ video ============ -->
+<%# Only rendered once a video is set. A dead play button in the second slot on
+    the page is worse than no section at all; the dashboard flags it as missing. %>
+<% if (settings.youtubeId) { %>
+<section class="sect" id="video">
+  <div class="wrap vid-grid">
+    <div class="vid-frame rv" id="vidFrame">
+      <div class="vid-face" id="vidFace">
+        <button class="vid-play" id="vidPlay" aria-label="Play video: <%= settings.youtubeTitle %>"></button>
+      </div>
+      <div class="vid-cap">
+        <h4><%= settings.youtubeTitle %></h4>
+        <span>Watch</span>
+      </div>
+    </div>
+    <div class="rv rv-d1">
+      <h3 class="h-md"><%- rich(copy.video.heading) %></h3>
+      <% copy.video.body.split(/\n\s*\n/).forEach(function(para, i){ %>
+        <p class="lede" style="margin-top:<%= i ? 14 : 18 %>px"><%- rich(para) %></p>
+      <% }); %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<!-- ============ client strip ============ -->
+<div class="strip" aria-label="Brands we work with">
+  <div class="mq" id="mq"></div>
+</div>
+
+<!-- ============ who we are ============ -->
+<section class="sect" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <p class="tag rv"><%= copy.about.tag %></p>
+        <h2 class="about-h rv rv-d1" style="margin-top:18px"><%- rich(copy.about.heading) %></h2>
+        <div class="beliefs">
+          <% copy.about.beliefs.forEach(function(b){ %>
+          <div class="belief rv"><span class="bk"><%= b.k %></span><p><%- rich(b.text) %></p></div>
+          <% }); %>
+        </div>
+      </div>
+      <aside class="stats rv rv-d2">
+        <% copy.about.stats.forEach(function(st){ %>
+        <div class="stat">
+          <span class="num" data-count="<%= String(st.value).replace(/[^0-9.]/g,'') %>" data-prefix="<%= st.prefix || '' %>" data-suffix="<%= st.suffix || '' %>"><%= (st.prefix || '') + '0' + (st.suffix || '') %></span>
+          <p><%= st.label %></p>
+        </div>
+        <% }); %>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ services ============ -->
+<section class="sect" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="shead">
+      <div class="rule"></div>
+      <div><p class="tag rv"><%= copy.services.tag %></p><h2 class="h-lg rv rv-d1" style="margin-top:16px"><%- rich(copy.services.heading) %></h2></div>
+      <p class="lede rv rv-d2"><%= copy.services.lede %></p>
+    </div>
+    <div class="svc-list" id="svcList"></div>
+  </div>
+</section>
+
+<!-- ============ process ============ -->
+<section class="sect" id="process">
+  <div class="wrap">
+    <div class="shead">
+      <div class="rule"></div>
+      <div><p class="tag rv"><%= copy.process.tag %></p><h2 class="h-lg rv rv-d1" style="margin-top:16px"><%- rich(copy.process.heading) %></h2></div>
+      <p class="lede rv rv-d2"><%= copy.process.lede %></p>
+    </div>
+    <div class="proc-wrap">
+      <div class="proc-vis" id="procVis" aria-hidden="true">
+        <svg viewBox="0 0 530 400">
+          <defs>
+            <linearGradient id="pgrad" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0%" stop-color="#0A3FA8"/><stop offset="100%" stop-color="#5AA4FF"/>
+            </linearGradient>
+          </defs>
+          <path id="pcurve" class="pcurve" d="M18 374 C 88 374 106 306 136 254 C 170 196 192 140 236 100 C 272 66 302 44 340 32"/>
+          <g id="pnodes"></g>
+        </svg>
+      </div>
+      <div id="procSteps"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ work ============ -->
+<section class="sect" id="work">
+  <div class="wrap">
+    <div class="shead">
+      <div class="rule"></div>
+      <div><p class="tag rv"><%= copy.work.tag %></p><h2 class="h-lg rv rv-d1" style="margin-top:16px"><%- rich(copy.work.heading) %></h2></div>
+      <p class="lede rv rv-d2"><%= copy.work.lede %></p>
+    </div>
+    <div class="work-grid" id="workGrid">
+      <% payload.cases.forEach(function(c, i){ %>
+      <article class="wcard" data-case="<%= i %>" tabindex="0" role="button" aria-label="Open case study: <%= c.client %>">
+        <div class="wcard-art">
+          <% if (c.image) { %><img src="<%= c.image %>" alt="<%= c.title %>" loading="lazy" decoding="async"><% } %>
+          <span class="wcard-view">View case</span>
+        </div>
+        <div class="wcard-body">
+          <div>
+            <h3 class="wcard-title"><%= c.title %></h3>
+            <p class="wcard-sub"><%= c.client %> &middot; <%= c.cat %></p>
+          </div>
+          <div class="wcard-metric"><span class="num"><%= c.metric %></span><small><%= c.metricLabel %></small></div>
+        </div>
+      </article>
+      <% }); %>
+    </div>
+    <% if (copy.work.note) { %><p class="placeholder-note"><%= copy.work.note %></p><% } %>
+  </div>
+</section>
+
+<!-- ============ email designs ============ -->
+<section class="sect" id="emails" style="padding-top:0">
+  <div class="wrap">
+    <div class="shead">
+      <div class="rule"></div>
+      <div><p class="tag rv"><%= copy.emails.tag %></p><h2 class="h-lg rv rv-d1" style="margin-top:16px"><%- rich(copy.emails.heading) %></h2></div>
+      <p class="lede rv rv-d2"><%= copy.emails.lede %></p>
+    </div>
+    <div class="mail-rail" id="mailRail"></div>
+    <% if (copy.emails.note) { %><p class="placeholder-note"><%= copy.emails.note %></p><% } %>
+  </div>
+</section>
+
+<!-- ============ social proof ============ -->
+<%# An empty bordered grid under a heading looks broken; hide the section
+    until there is at least one testimonial to show. %>
+<% if (payload.testimonials.length) { %>
+<section class="sect" style="padding-top:0">
+  <div class="wrap">
+    <div class="shead">
+      <div class="rule"></div>
+      <div><p class="tag rv"><%= copy.proof.tag %></p><h2 class="h-lg rv rv-d1" style="margin-top:16px"><%- rich(copy.proof.heading) %></h2></div>
+      <p class="lede rv rv-d2"><%= copy.proof.lede %></p>
+    </div>
+    <div class="tgrid rv" id="tGrid"></div>
+    <% if (copy.proof.note) { %><p class="placeholder-note"><%= copy.proof.note %></p><% } %>
+  </div>
+</section>
+<% } %>
+
+<!-- ============ faq ============ -->
+<%# Hidden until there is at least one question, like the other data-driven sections. %>
+<% if (payload.faqs.length) { %>
+<section class="sect" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="shead">
+      <div class="rule"></div>
+      <div><p class="tag rv"><%= copy.faq.tag %></p><h2 class="h-lg rv rv-d1" style="margin-top:16px"><%- rich(copy.faq.heading) %></h2></div>
+      <p class="lede rv rv-d2"><%= copy.faq.lede %></p>
+    </div>
+    <div class="faq-list rv">
+      <% payload.faqs.forEach(function(f, i){ %>
+        <details class="faq" <%= i === 0 ? 'open' : '' %>>
+          <summary><span><%- rich(f.q) %></span></summary>
+          <div class="faq-a"><p><%- rich(f.a) %></p></div>
+        </details>
+      <% }); %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<!-- ============ booking ============ -->
+<section class="sect" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="book rv">
+      <div class="book-in">
+        <div class="book-copy">
+          <p class="tag"><%= copy.booking.tag %></p>
+          <h2 class="h-md" style="margin-top:16px"><%- rich(copy.booking.heading) %></h2>
+          <p class="lede" style="margin-top:18px;font-size:1rem"><%= copy.booking.lede %></p>
+          <ul class="book-list">
+            <% copy.booking.bullets.forEach(function(li){ %><li><%= li %></li><% }); %>
+          </ul>
+          <div class="hero-cta">
+            <a class="btn btn-ghost" data-wa href="#"><%= copy.booking.whatsappLabel %></a>
+          </div>
+        </div>
+        <div class="cal-slot" id="calSlot">
+          <div class="cal-fallback" id="calFallback">
+            <% if (settings.calendlyUrl) { %>
+              <h4>Opening the calendar</h4>
+              <p>If it doesn't appear in a moment, open the booking page in a new tab instead.</p>
+              <div><a class="btn btn-fill" href="<%= settings.calendlyUrl %>" target="_blank" rel="noopener">Open the booking page</a></div>
+            <% } else { %>
+              <h4>Let's find a time</h4>
+              <p>Online booking isn't connected yet. Message us and we'll get a call in the diary today.</p>
+              <div class="acts" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+                <a class="btn btn-fill" data-wa href="#">Message on WhatsApp</a>
+                <a class="btn btn-ghost" href="mailto:<%= settings.email %>">Email us</a>
+              </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ final CTA ============ -->
+<section class="sect fin">
+  <div class="wrap">
+    <h2 class="rv"><%- rich(copy.final.heading) %></h2>
+    <p class="rv rv-d1"><%= copy.final.body %></p>
+    <div class="fin-cta rv rv-d2">
+      <span class="mag" data-mag><button class="btn btn-fill btn-lg" data-book><i></i><%= copy.final.ctaPrimary %></button></span>
+      <a class="btn btn-ghost btn-lg" data-wa href="#"><%= copy.final.ctaSecondary %></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ footer ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#home" class="nav-logo nav-logo-lg" aria-label="JOSION home">
+          <span class="brand">
+      <% if (settings.logo) { %>
+        <img class="brand-img brand-on-light" src="<%= settings.logo %>" alt="JOSION Marketing Agency">
+        <img class="brand-img brand-on-dark" src="<%= settings.logoDark || settings.logo %>" alt="" aria-hidden="true">
+      <% } else { %>
+        <span class="brand-type">JOSION<small>Email &middot; Automation &middot; Growth</small></span>
+      <% } %>
+    </span>
+        </a>
+        <p><%= copy.footer.description %></p>
+        <span class="mag" data-mag><button class="btn btn-fill btn-sm" data-book><%= copy.hero.ctaPrimary %></button></span>
+      </div>
+      <div>
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#process">Process</a></li>
+          <li><a href="#work">Work</a></li><li><a href="#emails">Email designs</a></li><li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul id="footSvc"></ul>
+      </div>
+      <div>
+        <h5>Get in touch</h5>
+        <ul>
+          <li><a href="mailto:<%= settings.email %>" id="footMail"><%= settings.email %></a></li>
+          <li><a data-wa href="#">WhatsApp</a></li>
+          <li><a href="#" data-social="li">LinkedIn</a></li>
+          <li><a href="#" data-social="ig">Instagram</a></li>
+          <li><a href="#" data-social="x">X / Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="yr">2026</span> Josion Marketing Agency. All rights reserved.</span>
+      <nav><a href="<%= settings.privacyUrl || '#' %>">Privacy policy</a><a href="<%= settings.termsUrl || '#' %>">Terms &amp; conditions</a></nav>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ whatsapp ============ -->
+<a class="wa" id="wa" href="#" target="_blank" rel="noopener" aria-label="Chat with JOSION on WhatsApp">
+  <span class="wa-ic">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.14c-.25.69-1.44 1.32-1.99 1.4-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.69-.62-2.97-1.28-4.91-4.27-5.06-4.47-.15-.2-1.21-1.61-1.21-3.07S6.79 7.2 7.04 6.93c.2-.22.46-.28.61-.28s.31 0 .44.01c.14.01.33-.05.52.4.2.48.66 1.66.72 1.78.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.25.31-.36.42-.12.12-.24.25-.1.49.14.24.61 1.01 1.31 1.63.9.8 1.65 1.05 1.89 1.17.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.58-.19 1.27z"/></svg>
+  </span>
+  <span class="wa-lab">Chat with us</span>
+</a>
+
+<!-- ============ case study modal ============ -->
+<div class="modal" id="csModal" role="dialog" aria-modal="true" aria-labelledby="csTitle" aria-hidden="true">
+  <div class="modal-bd" data-close></div>
+  <div class="modal-panel" id="csPanel">
+    <button class="modal-x" data-close aria-label="Close case study">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div id="csContent"></div>
+  </div>
+</div>
+
+<!-- ============ email lightbox ============ -->
+<div class="modal" id="mlModal" role="dialog" aria-modal="true" aria-labelledby="mlTitle" aria-hidden="true">
+  <div class="modal-bd" data-close></div>
+  <div class="modal-panel">
+    <button class="modal-x" data-close aria-label="Close preview">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="lb-in" id="mlContent"></div>
+  </div>
+</div>
+
+<script>window.JOSION = <%- scriptJson(payload) %>;</script>
+
+<script src="/js/site.js?v=<%= assetV %>" defer></script>
+<% if (settings.gaId) { %>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<%= settings.gaId %>"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','<%= settings.gaId %>');</script>
+<% } %>
+<% if (settings.analyticsSrc) { %>
+<script defer src="<%= settings.analyticsSrc %>"<% if (settings.analyticsSiteId) { %> data-domain="<%= settings.analyticsSiteId %>" data-website-id="<%= settings.analyticsSiteId %>"<% } %>></script>
+<% } %>
+</body>
+</html>

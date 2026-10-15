@@ -1,0 +1,37 @@
+<%- include('_head', { title: 'Testimonials' }) %>
+<%- include('_shell') %>
+  <div class="adm-head">
+    <div>
+      <h1>Testimonials</h1>
+      <p>Shown in the trust section. A photo helps a quote land; without one the person's initial is used instead.</p>
+    </div>
+    <a class="btn btn-fill btn-sm" href="/admin/testimonials/new">Add testimonial</a>
+  </div>
+
+  <div class="rows">
+    <% if (!items.length) { %><p class="empty">No testimonials yet.</p><% } %>
+    <% items.forEach(function(t, i){ %>
+      <div class="row">
+        <div class="row-thumb" style="border-radius:50%">
+          <% if (t.photo) { %><img src="<%= t.photo %>" alt=""><% } else { %><span><%= (t.name || 'J').trim().charAt(0) %></span><% } %>
+        </div>
+        <div>
+          <h3><%= t.name || 'Unnamed' %></h3>
+          <p><%= t.role %><%= t.role && t.quote ? ' · ' : '' %><%= t.quote.length > 70 ? t.quote.slice(0,70) + '…' : t.quote %></p>
+        </div>
+        <div class="row-acts">
+          <form method="post" action="/admin/testimonials/<%= t.id %>/move">
+            <input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="dir" value="up">
+            <button class="mini" <%= i===0 ? 'disabled' : '' %> aria-label="Move up">&uarr;</button></form>
+          <form method="post" action="/admin/testimonials/<%= t.id %>/move">
+            <input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="dir" value="down">
+            <button class="mini" <%= i===items.length-1 ? 'disabled' : '' %> aria-label="Move down">&darr;</button></form>
+          <a class="mini" href="/admin/testimonials/<%= t.id %>/edit">Edit</a>
+          <form method="post" action="/admin/testimonials/<%= t.id %>/delete" onsubmit="return confirm('Delete this testimonial?')">
+            <input type="hidden" name="_csrf" value="<%= csrf %>">
+            <button class="mini mini-bad" type="submit">Delete</button></form>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+<%- include('_foot') %>

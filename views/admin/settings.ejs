@@ -1,0 +1,91 @@
+<%- include('_head', { title: 'Links & branding' }) %>
+<%- include('_shell') %>
+  <div class="adm-head">
+    <div>
+      <h1>Links &amp; branding</h1>
+      <p>The logo, the booking link, the video and every outbound link on the site.</p>
+    </div>
+  </div>
+
+  <form class="form" method="post" enctype="multipart/form-data" action="/admin/settings">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <div class="fset">
+      <h2>Logo</h2>
+      <p class="hint">Your logo file is used exactly as supplied — nothing is redrawn or recoloured. A transparent PNG sits best on both themes. (SVG uploads are not accepted — an SVG can carry a script, and uploads are served from this site's own domain.)</p>
+      <%- include('_drop', { name: 'logo', label: 'Logo', value: s.logo, hint: 'Shown in the header, the loading screen and the footer.' }) %>
+      <%- include('_drop', { name: 'logoDark', label: 'Logo for dark theme', value: s.logoDark, hint: 'Optional. Use a light version if your main logo has dark lettering, or leave empty to use the same file for both.' }) %>
+      <%- include('_drop', { name: 'favicon', label: 'Favicon', value: s.favicon, hint: 'Optional. Square, 64px or larger.' }) %>
+    </div>
+
+    <div class="fset">
+      <h2>Booking</h2>
+      <div class="f">
+        <label for="calendlyUrl">Calendly link</label>
+        <input type="url" id="calendlyUrl" name="calendlyUrl" value="<%= s.calendlyUrl %>" placeholder="https://calendly.com/josion/strategy-call">
+        <p class="hint">Once this is set, every “Book a strategy call” button opens Calendly and the booking panel becomes a live inline calendar.</p>
+      </div>
+    </div>
+
+    <div class="fset">
+      <h2>Video</h2>
+      <div class="f">
+        <label for="youtubeId">YouTube link or video ID</label>
+        <input type="text" id="youtubeId" name="youtubeId" value="<%= s.youtubeId %>" placeholder="https://www.youtube.com/watch?v=...">
+        <p class="hint">Paste the whole URL — the ID is pulled out for you. Short links and /embed/ links work too.</p>
+      </div>
+      <div class="f">
+        <label for="youtubeTitle">Caption shown over the video</label>
+        <input type="text" id="youtubeTitle" name="youtubeTitle" value="<%= s.youtubeTitle %>">
+      </div>
+    </div>
+
+    <div class="fset">
+      <h2>Contact</h2>
+      <div class="grid2">
+        <div class="f"><label for="whatsapp">WhatsApp number</label>
+          <input type="text" id="whatsapp" name="whatsapp" value="<%= s.whatsapp %>" placeholder="2348012345678">
+          <p class="hint">Country code first, digits only.</p></div>
+        <div class="f"><label for="email">Email address</label>
+          <input type="email" id="email" name="email" value="<%= s.email %>" placeholder="hello@josion.agency"></div>
+      </div>
+      <div class="f"><label for="whatsappMsg">Message pre-filled for the visitor</label>
+        <input type="text" id="whatsappMsg" name="whatsappMsg" value="<%= s.whatsappMsg %>"></div>
+    </div>
+
+    <div class="fset">
+      <h2>Analytics</h2>
+      <p class="hint">Optional, and off until you fill one in. Nothing is loaded for visitors otherwise.</p>
+      <div class="f">
+        <label for="gaId">Google Analytics measurement ID</label>
+        <input type="text" id="gaId" name="gaId" value="<%= s.gaId %>" placeholder="G-XXXXXXXXXX">
+        <p class="hint">Starts with <code>G-</code>. Anything that is not a valid ID is ignored rather than saved.</p>
+      </div>
+      <div class="grid2">
+        <div class="f">
+          <label for="analyticsSrc">Or another provider's script URL</label>
+          <input type="url" id="analyticsSrc" name="analyticsSrc" value="<%= s.analyticsSrc %>" placeholder="https://plausible.io/js/script.js">
+        </div>
+        <div class="f">
+          <label for="analyticsSiteId">Site or domain for that provider</label>
+          <input type="text" id="analyticsSiteId" name="analyticsSiteId" value="<%= s.analyticsSiteId %>" placeholder="josion.agency">
+        </div>
+      </div>
+      <p class="hint">Works with Plausible, Fathom, Umami and anything else that loads from one script tag.</p>
+    </div>
+
+    <div class="fset">
+      <h2>Other links</h2>
+      <div class="grid2">
+        <div class="f"><label for="social_li">LinkedIn</label><input type="url" id="social_li" name="social_li" value="<%= s.social.li %>"></div>
+        <div class="f"><label for="social_ig">Instagram</label><input type="url" id="social_ig" name="social_ig" value="<%= s.social.ig %>"></div>
+      </div>
+      <div class="grid2">
+        <div class="f"><label for="social_x">X / Twitter</label><input type="url" id="social_x" name="social_x" value="<%= s.social.x %>"></div>
+        <div class="f"><label for="privacyUrl">Privacy policy</label><input type="url" id="privacyUrl" name="privacyUrl" value="<%= s.privacyUrl %>"></div>
+      </div>
+      <div class="f"><label for="termsUrl">Terms &amp; conditions</label><input type="url" id="termsUrl" name="termsUrl" value="<%= s.termsUrl %>"></div>
+    </div>
+
+    <div class="acts"><button class="btn btn-fill" type="submit">Save settings</button></div>
+  </form>
+<%- include('_foot') %>

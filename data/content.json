@@ -1,0 +1,546 @@
+{
+  "settings": {
+    "logo": "/uploads/img-20261015-wa0098-mv9jtzdw1.jpg",
+    "logoDark": "/uploads/img-20261015-wa0094-mv9jtzdx2.jpg",
+    "favicon": "",
+    "calendlyUrl": "https://calendly.com/josionmarketingagency/30min",
+    "whatsapp": "2348162443371",
+    "whatsappMsg": "Hi JOSION, I'd like to learn more about your email marketing services.",
+    "youtubeId": "uVWmh3ikMnA",
+    "youtubeTitle": "Why your welcome flow is leaking money",
+    "email": "hello@josionmarketingagency.com",
+    "social": {
+      "li": "",
+      "ig": "",
+      "x": ""
+    },
+    "privacyUrl": "",
+    "termsUrl": "",
+    "gaId": "",
+    "analyticsSrc": "",
+    "analyticsSiteId": "",
+    "passwordHash": ""
+  },
+  "copy": {},
+  "clients": [
+    "Aduna Skin",
+    "Northbound Coffee",
+    "Vellum Supply",
+    "Marrow & Co",
+    "Kikelomo",
+    "Halden Athletics",
+    "Pepper Grove",
+    "Studio Ninth",
+    "Baobab Home",
+    "Ferrous Cycles"
+  ],
+  "services": [
+    {
+      "t": "Lifecycle automation",
+      "d": "Welcome, browse abandon, cart recovery, post-purchase, winback and replenishment — built once, earning daily."
+    },
+    {
+      "t": "Campaign management",
+      "d": "A calendar that ships on time, with copy, design and segmentation handled end to end."
+    },
+    {
+      "t": "Email design & build",
+      "d": "Table-based templates that survive Outlook, respect dark mode, and load on a slow connection."
+    },
+    {
+      "t": "Copywriting",
+      "d": "Subject lines, preview text and body copy written for one reader, not a demographic."
+    },
+    {
+      "t": "Segmentation & data",
+      "d": "Behaviour, value and recency segments that stop you sending the same email to everybody."
+    },
+    {
+      "t": "Deliverability",
+      "d": "Authentication, warm-up, list hygiene and re-engagement so what you send reaches the inbox."
+    },
+    {
+      "t": "SMS & retention strategy",
+      "d": "The channel mix, cadence and offer architecture behind repeat purchase."
+    }
+  ],
+  "process": [
+    {
+      "n": "01",
+      "t": "Discover",
+      "d": "We audit your account, flows, list health and last ninety days of sends, then interview the people who talk to your customers."
+    },
+    {
+      "n": "02",
+      "t": "Strategize",
+      "d": "A lifecycle map: which flows exist, which are missing, what each one is worth, and the order we build them in."
+    },
+    {
+      "n": "03",
+      "t": "Create",
+      "d": "Copy, design and build. Every email is written for a specific moment in the customer relationship, not a template slot."
+    },
+    {
+      "n": "04",
+      "t": "Launch",
+      "d": "Staged rollout with deliverability monitoring, so volume ramps without putting your sending reputation at risk."
+    },
+    {
+      "n": "05",
+      "t": "Optimize",
+      "d": "Subject lines, offers, timing and segments tested against revenue per recipient — never against opens alone."
+    },
+    {
+      "n": "06",
+      "t": "Grow",
+      "d": "Monthly reporting, a rolling campaign calendar, and new flows as the catalogue and customer base change."
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "testimonial-1",
+      "quote": "They rebuilt our welcome flow in the first fortnight and it out-earned our entire paid social budget by month three. We stopped arguing about attribution after that.",
+      "name": "Jane Callum",
+      "role": "Head of Growth, DTC skincare brand",
+      "photo": ""
+    },
+    {
+      "id": "testimonial-2",
+      "quote": "The reporting alone was worth it. For the first time we could say which email made which sale, and plan the next quarter around something other than a hunch.",
+      "name": "Steve Howard",
+      "role": "Founder, specialty coffee roaster",
+      "photo": ""
+    },
+    {
+      "id": "testimonial-3",
+      "quote": "We had 40,000 subscribers doing nothing. JOSION segmented the list, cleaned it, and turned the quiet half into our best repeat-purchase cohort.",
+      "name": "Jeffery Thomas",
+      "role": "Ecommerce Manager, home goods",
+      "photo": ""
+    }
+  ],
+  "faqs": [
+    {
+      "id": "how-long",
+      "q": "How long before we see anything?",
+      "a": "The audit lands in week one and the first rebuilt flow is usually live by week two. Compounding revenue from the full lifecycle takes a quarter — anyone promising faster is selling you a discount code."
+    },
+    {
+      "id": "platforms",
+      "q": "Which email platforms do you work in?",
+      "a": "Klaviyo most often, then Mailchimp, Omnisend and Customer.io. If your stack is something else, say so on the call and we will tell you honestly whether we are the right people."
+    },
+    {
+      "id": "own-the-work",
+      "q": "Who owns the flows you build?",
+      "a": "You do. Everything is built inside your own account, documented, and yours to keep whether we work together for three months or three years."
+    },
+    {
+      "id": "contract",
+      "q": "Is there a minimum commitment?",
+      "a": "Three months, because retention work genuinely does not show its full shape faster than that. After the first three it runs month to month."
+    },
+    {
+      "id": "not-ready",
+      "q": "Our list is small. Are we too early?",
+      "a": "Possibly, and we will say so. Below a few thousand engaged subscribers your money is usually better spent on acquisition first. We would rather tell you that than take the retainer."
+    }
+  ],
+  "emails": [
+    {
+      "id": "welcome-series-1",
+      "cat": "Welcome flow",
+      "subject": "Kangaroo Sheets welcome flow",
+      "desc": "The full five-email welcome flow for a 100-sheet launch: introduction, social proof, product detail, why only 100, and the problem it solves.",
+      "image": "/uploads/flows-for-welcome-email-muvw5ro99-mv9jm1cm5.jpg",
+      "mobileImage": "",
+      "brand": "ADUNA SKIN",
+      "hero": [
+        "#0A3FA8",
+        "#1264FF"
+      ],
+      "h": "Start with the two things that matter",
+      "sub": "Cleanse. Protect. Everything else is optional.",
+      "bh": "Built for your skin barrier",
+      "bp": "Ninety percent of results come from two steps done consistently. We made both, and nothing you have to think about.",
+      "cta": "Shop the essentials",
+      "prods": [
+        [
+          "Barrier Cleanser",
+          "₦18,500"
+        ],
+        [
+          "Daily Shield SPF",
+          "₦24,000"
+        ]
+      ],
+      "stats": [
+        [
+          "62%",
+          "Open rate"
+        ],
+        [
+          "11.4%",
+          "Click rate"
+        ]
+      ]
+    },
+    {
+      "id": "abandoned-cart-2",
+      "cat": "Browse abandonment",
+      "subject": "More than a shirt. A message.",
+      "desc": "Stand Up Now Apparel. A no-discount follow-up: the founder's story behind the brand, then three products with a purpose.",
+      "image": "/uploads/babd-email-2a-under-2mb-muw8r4ifc-mv9jm0wo2.jpg",
+      "mobileImage": "",
+      "brand": "HALDEN ATHLETICS",
+      "hero": [
+        "#08306B",
+        "#1264FF"
+      ],
+      "h": "Your cart is holding",
+      "sub": "Two items, reserved for 24 hours.",
+      "bh": "The three questions we get most",
+      "bp": "Sizing runs true. Returns are free for thirty days. And yes, it survives the wash — we tested it two hundred times.",
+      "cta": "Finish checkout",
+      "prods": [
+        [
+          "Merino Base Layer",
+          "₦42,000"
+        ],
+        [
+          "Trail Short 5\"",
+          "₦29,500"
+        ]
+      ],
+      "stats": [
+        [
+          "9.8%",
+          "Recovery rate"
+        ],
+        [
+          "3.1×",
+          "ROAS"
+        ]
+      ]
+    },
+    {
+      "id": "product-launch-3",
+      "cat": "Welcome series",
+      "subject": "Welcome to the pouch gang.",
+      "desc": "Kangaroo Sheets. The first welcome email: the bedside problem, the pouch that fixes it, and what subscribers get for sticking around before a 100-sheet drop.",
+      "image": "/uploads/email-5-product-launch-muw9dehgd-mv9jm0yk3.jpg",
+      "mobileImage": "",
+      "brand": "VELLUM SUPPLY",
+      "hero": [
+        "#0A3FA8",
+        "#4E9CFF"
+      ],
+      "h": "The refill system, finally",
+      "sub": "One bottle. Twelve months. No plastic.",
+      "bh": "Why it took eighteen months",
+      "bp": "We would not ship a refill that leaked, and the first four prototypes did. This one does not.",
+      "cta": "Reserve yours",
+      "prods": [
+        [
+          "Starter Kit",
+          "₦36,000"
+        ],
+        [
+          "Refill Trio",
+          "₦14,500"
+        ]
+      ],
+      "stats": [
+        [
+          "31%",
+          "Of launch revenue"
+        ],
+        [
+          "4,900",
+          "Units week one"
+        ]
+      ]
+    },
+    {
+      "id": "newsletter-4",
+      "cat": "Newsletter",
+      "subject": "What's your wellness goal?",
+      "desc": "AirWaterHealing.com. A quiz email asking subscribers what they are focused on (hydration, clean air, daily support or recovery) so later sends can match the answer.",
+      "image": "/uploads/wellness-goal-quiz-newsletter-muwjo9hde-mv9jm1f36.jpg",
+      "mobileImage": "",
+      "brand": "NORTHBOUND",
+      "hero": [
+        "#062A6E",
+        "#2E7BFF"
+      ],
+      "h": "What altitude actually does to a bean",
+      "sub": "Issue 41 · Four minutes",
+      "bh": "This week on the cupping table",
+      "bp": "A washed Yirgacheffe that tastes like it has been lit from behind, and an honest note on the lot we got wrong.",
+      "cta": "Read the issue",
+      "prods": [],
+      "stats": [
+        [
+          "48%",
+          "Open rate"
+        ],
+        [
+          "0.3%",
+          "Unsubscribe"
+        ]
+      ]
+    },
+    {
+      "id": "winback-5",
+      "cat": "Newsletter",
+      "subject": "Build Direct Audience Ownership",
+      "desc": "Keep your brand top-of-mind with regular touches.",
+      "image": "/uploads/follow-up-1-hydration-newsletter-1-muwjo-mv9jm1gl7.jpg",
+      "mobileImage": "",
+      "brand": "MARROW & CO",
+      "hero": [
+        "#0B3A96",
+        "#1264FF"
+      ],
+      "h": "Still here when you need us",
+      "sub": "A lot has changed since your last order.",
+      "bh": "Three things that are new",
+      "bp": "A smaller size, a better price on the one you bought last time, and delivery that no longer takes a week.",
+      "cta": "See what changed",
+      "prods": [
+        [
+          "Everyday Pan",
+          "₦58,000"
+        ],
+        [
+          "Care Kit",
+          "₦12,000"
+        ]
+      ],
+      "stats": [
+        [
+          "14%",
+          "Reactivated"
+        ],
+        [
+          "₦4.2m",
+          "Recovered"
+        ]
+      ]
+    },
+    {
+      "id": "post-purchase-6",
+      "cat": "Product launch",
+      "subject": "Stop the Scroll, Start the Rush",
+      "desc": "Convert pre-launch hype into rapid opening-day sales.",
+      "image": "/uploads/welcome-email-15-prod-launch-mux9ch0hg-mv9jm1254.png",
+      "mobileImage": "",
+      "brand": "PEPPER GROVE",
+      "hero": [
+        "#0A3FA8",
+        "#5AA4FF"
+      ],
+      "h": "It arrives Thursday",
+      "sub": "Here is how to get it right the first time.",
+      "bh": "Three minutes of prep",
+      "bp": "Rinse, dry properly, and store it away from the window. Do that and it will outlast the pan you already own.",
+      "cta": "Read the guide",
+      "prods": [],
+      "stats": [
+        [
+          "71%",
+          "Open rate"
+        ],
+        [
+          "-22%",
+          "Support tickets"
+        ]
+      ]
+    },
+    {
+      "id": "stand-up-now-browse-15",
+      "cat": "Browse abandonment",
+      "subject": "The design you liked. Now 15% off with code STAND15",
+      "desc": "Stand Up Now Apparel. Brings shoppers back to the design they viewed with a 48-hour 15% code, a note from the founder and real customer reviews.",
+      "image": "/uploads/babd-email-2a-1-jpg-muxal7t9o-mv9jm0lg1.jpg",
+      "mobileImage": ""
+    }
+  ],
+  "cases": [
+    {
+      "source": "admin",
+      "id": "aduna",
+      "client": "Airwater Healing",
+      "cat": "Health and Wellness",
+      "title": "Campaigns and flows that grew the email revenue",
+      "art": "flow",
+      "metric": "+57%",
+      "metricLabel": "Email-attributed revenue",
+      "overview": "A four-year-old wellness brand with 63,000 subscribers, one welcome email and a monthly newsletter. Everything else was paid acquisition.",
+      "challenge": "Rising CAC had squeezed margin to the point where growth was costing more than it returned. The list was the largest untouched asset in the business, and nobody owned it.",
+      "strategy": "We rebuilt the lifecycle from zero: a five-part welcome series segmented by skin concern, browse and cart recovery, a post-purchase education track, and a replenishment trigger tied to product size. Copy was rewritten around the barrier-first philosophy the founder actually talks about.",
+      "results": [
+        {
+          "v": "+57%",
+          "l": "Email revenue"
+        },
+        {
+          "v": "68.27%",
+          "l": "Of total revenue"
+        },
+        {
+          "v": "9.8%",
+          "l": "Cart recovery"
+        },
+        {
+          "v": "62%",
+          "l": "Welcome open rate"
+        }
+      ],
+      "image": "/uploads/air-water-healing-mup70ox55.jpg",
+      "beforeImage": "/uploads/klaviyo-db-1-b4-mup70p476.jpg",
+      "afterImage": "/uploads/kalviyo-db-1-after-mup70pa37.jpg",
+      "emailRef": "welcome-series-1"
+    },
+    {
+      "source": "admin",
+      "id": "halden",
+      "client": "Stand Up Now Apparel",
+      "cat": "Apparel · Cart recovery",
+      "title": "Recovering the checkout, without discounting it",
+      "art": "bars",
+      "metric": "9.8%",
+      "metricLabel": "Cart recovery rate",
+      "overview": "A technical apparel brand losing four in five carts and papering over it with a standing 15% recovery code.",
+      "challenge": "The discount had trained customers to abandon deliberately. Recovery revenue looked healthy while average order value quietly fell for three straight quarters.",
+      "strategy": "We killed the automatic code and replaced it with objection handling — sizing, returns, durability — in a three-email sequence timed to one hour, one day and three days. The discount survives only in the final email, and only for first-time buyers.",
+      "results": [
+        {
+          "v": "9.8%",
+          "l": "Recovery rate"
+        },
+        {
+          "v": "+18%",
+          "l": "Average order value"
+        },
+        {
+          "v": "3.1×",
+          "l": "Return on retention spend"
+        },
+        {
+          "v": "-60%",
+          "l": "Discount exposure"
+        }
+      ],
+      "image": "/uploads/klaviyo-db-2-muvvl4as8.jpg",
+      "beforeImage": "",
+      "afterImage": "",
+      "emailRef": "abandoned-cart-2"
+    },
+    {
+      "source": "admin",
+      "id": "vellum",
+      "client": "Kangaroo Sheets",
+      "cat": "Home · Product launch",
+      "title": "A launch that sold out before the ads went live",
+      "art": "wave",
+      "metric": "4,900",
+      "metricLabel": "Units sold in week one",
+      "overview": "An eighteen-month product development cycle with one shot at a launch, and a list that had never been segmented.",
+      "challenge": "Sending one announcement to everybody would have burned the most engaged buyers on a generic email and buried the rest in an inbox they never open.",
+      "strategy": "Three waves. Waitlist first with founder-written context and no discount, then recent browsers with a comparison against the old product, then the full list with social proof from the first 48 hours. Suppression rules stopped anyone receiving two.",
+      "results": [
+        {
+          "v": "4,900",
+          "l": "Units week one"
+        },
+        {
+          "v": "31%",
+          "l": "Of launch revenue"
+        },
+        {
+          "v": "0.2%",
+          "l": "Unsubscribe rate"
+        },
+        {
+          "v": "2.4×",
+          "l": "Waitlist conversion"
+        }
+      ],
+      "image": "/uploads/email-5-product-launch-muw9dehgd-mv9jm0yk3.jpg",
+      "beforeImage": "",
+      "afterImage": "",
+      "emailRef": "product-launch-3"
+    },
+    {
+      "source": "admin",
+      "id": "marrow",
+      "client": "Airwater Healing",
+      "cat": "Wellness - Newsletter",
+      "title": "Waking over 38,000 subscribers who had stopped listening",
+      "art": "rings",
+      "metric": "$6k",
+      "metricLabel": "Increase in 90 days",
+      "overview": "Half the list had not opened an email in over a year, and it was dragging deliverability down for the half that had.",
+      "challenge": "Sending more to a dormant list was making things worse. Inbox placement had slipped far enough that even engaged subscribers were landing in Promotions.",
+      "strategy": "Authentication and list hygiene first, then a three-email winback at day 180 with a genuine reason to return rather than a coupon. Anyone still silent moved to a sunset path and off the active list entirely.",
+      "results": [
+        {
+          "v": "14%",
+          "l": "Reactivated"
+        },
+        {
+          "v": "₦4.2m",
+          "l": "Recovered revenue"
+        },
+        {
+          "v": "+21pt",
+          "l": "Inbox placement"
+        },
+        {
+          "v": "-38%",
+          "l": "List size, higher revenue"
+        }
+      ],
+      "image": "/uploads/wellness-goal-quiz-newsletter-muwjo9hde-mv9jm1f36.jpg",
+      "beforeImage": "/uploads/klaviyo-db-1-b4-mup70p476.jpg",
+      "afterImage": "/uploads/kalviyo-db-1-after-mup70pa37.jpg",
+      "emailRef": "winback-5"
+    },
+    {
+      "source": "admin",
+      "id": "northbound",
+      "client": "Stand Up Now Apparel",
+      "cat": "Apparel · Cart recovery",
+      "title": "Remove the Final Friction",
+      "art": "grid",
+      "metric": "48%",
+      "metricLabel": "Increased Completed Orders",
+      "overview": "A strategic, automated abandoned cart email sequence designed to recover high intent lost revenue.",
+      "challenge": "Missed Revenue: Valuable traffic and ad spend were being wasted because there was no automated safety net to bring interested buyers back.",
+      "strategy": "Friction Removal & Reassurance: Instead of just showing the item, we proactively addressed common drop-off barriers (like shipping concerns, security trust badges, and FAQs) directly inside the email layout.",
+      "results": [
+        {
+          "v": "48%",
+          "l": "Open rate"
+        },
+        {
+          "v": "0.3%",
+          "l": "Unsubscribe"
+        },
+        {
+          "v": "+2.1×",
+          "l": "Repeat purchase rate"
+        },
+        {
+          "v": "+64%",
+          "l": "Promo click rate"
+        }
+      ],
+      "image": "/uploads/babd-email-2a-1-jpg-muxal7t9o-mv9jm0lg1.jpg",
+      "beforeImage": "/uploads/klaviyo-db-2-muvvl4as8.jpg",
+      "afterImage": "/uploads/klaviyo-db-2-muvvl4as8.jpg",
+      "emailRef": "newsletter-4"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+<div class="adm">
+  <div class="adm-bar">
+    <button class="adm-burger" id="admBurger" type="button" aria-expanded="false" aria-controls="admSide" aria-label="Open menu">
+      <span></span>
+    </button>
+    <a class="adm-brand" href="/" target="_blank" rel="noopener">
+      <% if (locals.logo) { %><img src="<%= locals.logo %>" alt="JOSION"><% } else { %><span class="brand-type">JOSION<small>Admin</small></span><% } %>
+    </a>
+    <%- include('_tt') %>
+  </div>
+
+  <button class="adm-scrim" id="admScrim" type="button" tabindex="-1" aria-hidden="true"></button>
+
+  <aside class="adm-side" id="admSide">
+    <div class="adm-side-head">
+      <a class="adm-brand" href="/" target="_blank" rel="noopener">
+        <% if (locals.logo) { %><img src="<%= locals.logo %>" alt="JOSION"><% } else { %><span class="brand-type">JOSION<small>Admin</small></span><% } %>
+      </a>
+      <button class="adm-close" id="admClose" type="button" aria-label="Close menu">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <nav class="adm-nav" aria-label="Dashboard">
+      <a href="/admin" <%= section==='dashboard' ? 'aria-current=page' : '' %>>Overview</a>
+      <a href="/admin/cases" <%= section==='cases' ? 'aria-current=page' : '' %>>Case studies</a>
+      <a href="/admin/emails" <%= section==='emails' ? 'aria-current=page' : '' %>>Email designs</a>
+      <a href="/admin/testimonials" <%= section==='testimonials' ? 'aria-current=page' : '' %>>Testimonials</a>
+      <a href="/admin/faqs" <%= section==='faqs' ? 'aria-current=page' : '' %>>FAQ</a>
+      <a href="/admin/copy" <%= section==='copy' ? 'aria-current=page' : '' %>>Page copy</a>
+      <a href="/admin/settings" <%= section==='settings' ? 'aria-current=page' : '' %>>Links &amp; branding</a>
+      <a href="/admin/account" <%= section==='account' ? 'aria-current=page' : '' %>>Account</a>
+      <a href="/" target="_blank" rel="noopener">View site &nearr;</a>
+    </nav>
+    <div class="adm-foot">
+      <form method="post" action="/admin/logout">
+      <input type="hidden" name="_csrf" value="<%= csrf %>"><button class="mini" type="submit">Sign out</button></form>
+      <%- include('_tt') %>
+    </div>
+  </aside>
+
+  <main class="adm-main">
+    <% notice.forEach(function(m){ %><div class="flash flash-ok"><%= m %></div><% }); %>
+    <% problem.forEach(function(m){ %><div class="flash flash-bad"><%= m %></div><% }); %>

@@ -1,0 +1,174 @@
+<%- include('_head', { title: 'Page copy' }) %>
+<%- include('_shell') %>
+  <div class="adm-head">
+    <div>
+      <h1>Page copy</h1>
+      <p>Every heading and paragraph on the site. Clear a field and the original wording comes back, so you can always undo.</p>
+    </div>
+  </div>
+
+  <div class="fset" style="margin-bottom:22px">
+    <h2>Formatting</h2>
+    <p class="hint">Three things work in any field below:</p>
+    <ul class="book-list" style="margin:0">
+      <li><code>**like this**</code> — emphasis in white</li>
+      <li><code>*like this*</code> — emphasis in blue</li>
+      <li>A new line becomes a line break, so you control where headings wrap</li>
+    </ul>
+  </div>
+
+  <form class="form" method="post" action="/admin/copy">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+
+    <div class="fset">
+      <h2>Hero</h2>
+      <div class="f"><label for="hero.headline">Fixed first line</label>
+        <input type="text" id="hero.headline" name="hero.headline" value="<%= c.hero.headline %>"></div>
+      <div class="f"><label for="hero.phrases">Rotating endings — one per line</label>
+        <textarea id="hero.phrases" name="hero.phrases" style="min-height:110px"><%= c.hero.phrases.join('\n') %></textarea>
+        <p class="hint">These type themselves out one after another under the fixed line.</p></div>
+      <div class="f"><label for="hero.lede">Supporting paragraph</label>
+        <textarea id="hero.lede" name="hero.lede"><%= c.hero.lede %></textarea></div>
+      <div class="grid2">
+        <div class="f"><label for="hero.ctaPrimary">Main button</label>
+          <input type="text" id="hero.ctaPrimary" name="hero.ctaPrimary" value="<%= c.hero.ctaPrimary %>">
+          <p class="hint">Also used in the header and footer buttons.</p></div>
+        <div class="f"><label for="hero.ctaSecondary">Second button</label>
+          <input type="text" id="hero.ctaSecondary" name="hero.ctaSecondary" value="<%= c.hero.ctaSecondary %>"></div>
+      </div>
+      <div class="f"><label for="hero.note">Small line under the buttons</label>
+        <input type="text" id="hero.note" name="hero.note" value="<%= c.hero.note %>">
+        <p class="hint">Leave empty to hide it.</p></div>
+    </div>
+
+    <div class="fset">
+      <h2>Video</h2>
+      <div class="f"><label for="video.heading">Heading beside the video</label>
+        <input type="text" id="video.heading" name="video.heading" value="<%= c.video.heading %>"></div>
+      <div class="f"><label for="video.body">Paragraphs</label>
+        <textarea id="video.body" name="video.body" style="min-height:150px"><%= c.video.body %></textarea>
+        <p class="hint">Leave a blank line between paragraphs.</p></div>
+    </div>
+
+    <div class="fset">
+      <h2>Who we are</h2>
+      <div class="f"><label for="about.tag">Small label</label>
+        <input type="text" id="about.tag" name="about.tag" value="<%= c.about.tag %>"></div>
+      <div class="f"><label for="about.heading">Big statement</label>
+        <textarea id="about.heading" name="about.heading"><%= c.about.heading %></textarea></div>
+
+      <div class="f"><label>The four points</label>
+        <% c.about.beliefs.concat([{k:'',text:''},{k:'',text:''}]).slice(0,6).forEach(function(b){ %>
+          <div class="pair" style="margin-bottom:10px;align-items:start">
+            <input type="text" name="belief_k" value="<%= b.k %>" placeholder="Belief" aria-label="Label">
+            <textarea name="belief_text" style="min-height:70px" placeholder="**Lead in bold.** Then the rest."><%= b.text %></textarea>
+          </div>
+        <% }); %>
+      </div>
+
+      <div class="f"><label>The three numbers</label>
+        <% c.about.stats.concat([{value:'',suffix:'',label:''},{value:'',suffix:'',label:''}]).slice(0,5).forEach(function(st){ %>
+          <div class="pair pair3" style="margin-bottom:10px">
+            <input type="text" name="stat_value" value="<%= st.value %>" placeholder="38" aria-label="Number">
+            <input type="text" name="stat_suffix" value="<%= st.suffix || '' %>" placeholder="%" aria-label="Symbol after it">
+            <input type="text" name="stat_label" value="<%= st.label %>" placeholder="What it measures" aria-label="Label">
+          </div>
+        <% }); %>
+        <p class="hint">The number counts up as the visitor scrolls, so keep it numeric and put any symbol in the middle box.</p>
+      </div>
+    </div>
+
+    <% [['services','What we do'],['process','Our process'],['work','Selected work'],['emails','Email designs'],['proof','Testimonials section'],['faq','FAQ section']].forEach(function(pair){
+         var k = pair[0]; %>
+      <div class="fset">
+        <h2><%= pair[1] %></h2>
+        <div class="grid2">
+          <div class="f"><label for="<%= k %>.tag">Small label</label>
+            <input type="text" id="<%= k %>.tag" name="<%= k %>.tag" value="<%= c[k].tag %>"></div>
+          <div class="f"><label for="<%= k %>.heading">Heading</label>
+            <textarea id="<%= k %>.heading" name="<%= k %>.heading" style="min-height:70px"><%= c[k].heading %></textarea></div>
+        </div>
+        <div class="f"><label for="<%= k %>.lede">Intro paragraph</label>
+          <textarea id="<%= k %>.lede" name="<%= k %>.lede"><%= c[k].lede %></textarea></div>
+        <% if (c[k].note !== undefined) { %>
+          <div class="f"><label for="<%= k %>.note">Small note underneath</label>
+            <input type="text" id="<%= k %>.note" name="<%= k %>.note" value="<%= c[k].note %>">
+            <p class="hint">Leave empty to hide it.</p></div>
+        <% } %>
+      </div>
+    <% }); %>
+
+    <div class="fset">
+      <h2>Booking</h2>
+      <div class="grid2">
+        <div class="f"><label for="booking.tag">Small label</label>
+          <input type="text" id="booking.tag" name="booking.tag" value="<%= c.booking.tag %>"></div>
+        <div class="f"><label for="booking.heading">Heading</label>
+          <textarea id="booking.heading" name="booking.heading" style="min-height:70px"><%= c.booking.heading %></textarea></div>
+      </div>
+      <div class="f"><label for="booking.lede">Intro paragraph</label>
+        <textarea id="booking.lede" name="booking.lede"><%= c.booking.lede %></textarea></div>
+      <div class="f"><label for="booking.bullets">What they get — one per line</label>
+        <textarea id="booking.bullets" name="booking.bullets" style="min-height:110px"><%= c.booking.bullets.join('\n') %></textarea></div>
+      <div class="f"><label for="booking.whatsappLabel">WhatsApp button</label>
+        <input type="text" id="booking.whatsappLabel" name="booking.whatsappLabel" value="<%= c.booking.whatsappLabel %>"></div>
+    </div>
+
+    <div class="fset">
+      <h2>Closing section</h2>
+      <div class="f"><label for="final.heading">Big closing line</label>
+        <textarea id="final.heading" name="final.heading"><%= c.final.heading %></textarea>
+        <p class="hint">Wrap part of it in <code>*stars*</code> to put it on its own line in blue.</p></div>
+      <div class="f"><label for="final.body">Supporting paragraph</label>
+        <textarea id="final.body" name="final.body"><%= c.final.body %></textarea></div>
+      <div class="grid2">
+        <div class="f"><label for="final.ctaPrimary">Main button</label>
+          <input type="text" id="final.ctaPrimary" name="final.ctaPrimary" value="<%= c.final.ctaPrimary %>"></div>
+        <div class="f"><label for="final.ctaSecondary">WhatsApp button</label>
+          <input type="text" id="final.ctaSecondary" name="final.ctaSecondary" value="<%= c.final.ctaSecondary %>"></div>
+      </div>
+    </div>
+
+    <div class="fset">
+      <h2>The seven services</h2>
+      <p class="hint">Shown as the interactive list under “What we do”. Clear both fields on a row to remove that service.</p>
+      <% services.concat([{t:'',d:''},{t:'',d:''}]).forEach(function(sv){ %>
+        <div class="f">
+          <input type="text" name="service_t" value="<%= sv.t %>" placeholder="Service name" aria-label="Service name">
+          <textarea name="service_d" rows="2" placeholder="One line on what it is" aria-label="Service description"><%= sv.d %></textarea>
+        </div>
+      <% }); %>
+    </div>
+
+    <div class="fset">
+      <h2>The process steps</h2>
+      <p class="hint">The numbered journey beside the rising curve. Clear the title and description to remove a step.</p>
+      <% steps.concat([{n:'',t:'',d:''}]).forEach(function(st, i){ %>
+        <div class="f">
+          <div class="grid2">
+            <input type="text" name="step_n" value="<%= st.n %>" placeholder="<%= String(i+1).padStart(2,'0') %>" aria-label="Step number">
+            <input type="text" name="step_t" value="<%= st.t %>" placeholder="Step name" aria-label="Step name">
+          </div>
+          <textarea name="step_d" rows="2" placeholder="What happens at this step" aria-label="Step description"><%= st.d %></textarea>
+        </div>
+      <% }); %>
+    </div>
+
+    <div class="fset">
+      <h2>Client names</h2>
+      <div class="f">
+        <label for="clients">Names in the scrolling strip</label>
+        <textarea id="clients" name="clients" rows="6"><%= clients.join('\n') %></textarea>
+        <p class="hint">One per line. These are the brand names that scroll under the hero.</p>
+      </div>
+    </div>
+
+    <div class="fset">
+      <h2>Footer</h2>
+      <div class="f"><label for="footer.description">Short description under the logo</label>
+        <textarea id="footer.description" name="footer.description"><%= c.footer.description %></textarea></div>
+    </div>
+
+    <div class="acts"><button class="btn btn-fill" type="submit">Save page copy</button></div>
+  </form>
+<%- include('_foot') %>

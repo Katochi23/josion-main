@@ -1,0 +1,39 @@
+<%- include('_head', { title: mode === 'new' ? 'New testimonial' : 'Edit testimonial' }) %>
+<%- include('_shell') %>
+  <div class="adm-head">
+    <div>
+      <h1><%= mode === 'new' ? 'New testimonial' : 'Edit testimonial' %></h1>
+      <p>Quote them in their own words. Specific beats glowing — a number or a before-and-after reads as real.</p>
+    </div>
+    <a class="mini" href="/admin/testimonials">Back to list</a>
+  </div>
+
+  <form class="form" method="post" enctype="multipart/form-data"
+        action="<%= mode === 'new' ? '/admin/testimonials' : '/admin/testimonials/' + item.id %>">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <div class="fset">
+      <h2>The quote</h2>
+      <div class="f">
+        <label for="quote">What they said</label>
+        <textarea id="quote" name="quote" required style="min-height:130px"
+          placeholder="They rebuilt our welcome flow in the first fortnight and it out-earned our entire paid social budget by month three."><%= item.quote || '' %></textarea>
+      </div>
+      <div class="grid2">
+        <div class="f"><label for="name">Name</label>
+          <input type="text" id="name" name="name" value="<%= item.name || '' %>" placeholder="Adaeze Okonkwo"></div>
+        <div class="f"><label for="role">Role and company</label>
+          <input type="text" id="role" name="role" value="<%= item.role || '' %>" placeholder="Head of Growth, Aduna Skin"></div>
+      </div>
+    </div>
+
+    <div class="fset">
+      <h2>Photo</h2>
+      <%- include('_drop', { name: 'photo', label: 'Their photo', value: item.photo || '', hint: 'Square works best — it is shown as a small circle. Leave empty to use their initial instead.' }) %>
+    </div>
+
+    <div class="acts">
+      <button class="btn btn-fill" type="submit"><%= mode === 'new' ? 'Add testimonial' : 'Save changes' %></button>
+      <a class="mini" href="/admin/testimonials">Cancel</a>
+    </div>
+  </form>
+<%- include('_foot') %>

@@ -1,0 +1,33 @@
+<%- include('_head', { title: 'Overview' }) %>
+<%- include('_shell') %>
+  <div class="adm-head">
+    <div>
+      <h1>Overview</h1>
+      <p>Everything here appears on the live site the moment you save. No rebuild, no deploy.</p>
+    </div>
+    <a class="btn btn-ghost btn-sm" href="/" target="_blank" rel="noopener">Open the site</a>
+  </div>
+
+  <div class="tiles">
+    <div class="tile"><b><%= counts.cases %></b><span>Case studies</span></div>
+    <div class="tile"><b><%= counts.emails %></b><span>Email designs</span></div>
+    <div class="tile"><b><%= counts.testimonials %></b><span>Testimonials</span></div>
+  </div>
+
+  <% if (missing.length) { %>
+    <div class="fset">
+      <h2>Still to fill in</h2>
+      <p class="hint">The site works without these, but visitors will hit placeholders.</p>
+      <div class="rows">
+        <% missing.forEach(function(m){ %>
+          <div class="row" style="grid-template-columns:minmax(0,1fr) auto">
+            <div><h3><%= m.what %></h3><p>Not set yet</p></div>
+            <div class="row-acts"><a class="mini" href="<%= m.where %>">Set it</a></div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  <% } else { %>
+    <div class="fset"><h2>Everything is set</h2><p class="hint">Logo, booking link, video and WhatsApp number are all in place.</p></div>
+  <% } %>
+<%- include('_foot') %>

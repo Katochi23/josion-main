@@ -1,0 +1,89 @@
+<%- include('_head', { title: mode === 'new' ? 'New case study' : 'Edit case study' }) %>
+<%- include('_shell') %>
+  <div class="adm-head">
+    <div>
+      <h1><%= mode === 'new' ? 'New case study' : 'Edit case study' %></h1>
+      <p>Leave the image empty and the site draws its own artwork for this project, so a half-finished entry still looks right.</p>
+    </div>
+    <a class="mini" href="/admin/cases">Back to list</a>
+  </div>
+
+  <form class="form" method="post" enctype="multipart/form-data"
+        action="<%= mode === 'new' ? '/admin/cases' : '/admin/cases/' + item.id %>">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+
+    <div class="fset">
+      <h2>The headline</h2>
+      <div class="f">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" value="<%= item.title || '' %>" required
+               placeholder="A welcome flow that outgrew the ad account">
+      </div>
+      <div class="grid2">
+        <div class="f"><label for="client">Client</label>
+          <input type="text" id="client" name="client" value="<%= item.client || '' %>" placeholder="Aduna Skin"></div>
+        <div class="f"><label for="cat">Category</label>
+          <input type="text" id="cat" name="cat" value="<%= item.cat || '' %>" placeholder="Skincare · Lifecycle rebuild"></div>
+      </div>
+      <div class="grid2">
+        <div class="f"><label for="metric">Headline number</label>
+          <input type="text" id="metric" name="metric" value="<%= item.metric || '' %>" placeholder="+312%"></div>
+        <div class="f"><label for="metricLabel">What it measures</label>
+          <input type="text" id="metricLabel" name="metricLabel" value="<%= item.metricLabel || '' %>" placeholder="Email-attributed revenue"></div>
+      </div>
+    </div>
+
+    <div class="fset">
+      <h2>The story</h2>
+      <div class="f"><label for="overview">Overview</label><textarea id="overview" name="overview"><%= item.overview || '' %></textarea></div>
+      <div class="f"><label for="challenge">The challenge</label><textarea id="challenge" name="challenge"><%= item.challenge || '' %></textarea></div>
+      <div class="f"><label for="strategy">What we did</label><textarea id="strategy" name="strategy"><%= item.strategy || '' %></textarea></div>
+    </div>
+
+    <div class="fset">
+      <h2>Results</h2>
+      <p class="hint">Four fit the layout neatly. Empty rows are ignored.</p>
+      <div id="results">
+        <% var rows = (item.results && item.results.length) ? item.results : [{v:'',l:''}]; %>
+        <% rows.concat([{v:'',l:''},{v:'',l:''},{v:'',l:''}]).slice(0,6).forEach(function(r){ %>
+          <div class="pair">
+            <input type="text" name="result_v" value="<%= r.v || '' %>" placeholder="+312%" aria-label="Result value">
+            <input type="text" name="result_l" value="<%= r.l || '' %>" placeholder="Email revenue" aria-label="Result label">
+          </div>
+        <% }); %>
+      </div>
+      <div><button class="mini" type="button" data-add-row="results">+ Add another result</button></div>
+    </div>
+
+    <div class="fset">
+      <h2>Imagery</h2>
+      <%- include('_drop', { name: 'image', label: 'Main image', value: item.image || '', hint: 'Used on the hero card, the work grid and the top of the pop-up. Landscape works best.' }) %>
+      <div class="f">
+        <label for="art">Fallback artwork style</label>
+        <select id="art" name="art">
+          <% ['wave','bars','flow','grid','rings'].forEach(function(a){ %>
+            <option value="<%= a %>" <%= (item.art||'wave')===a ? 'selected' : '' %>><%= a %></option>
+          <% }); %>
+        </select>
+        <p class="hint">Only drawn when there is no image above.</p>
+      </div>
+      <%- include('_drop', { name: 'beforeImage', label: 'Before image', value: item.beforeImage || '', hint: 'The old email. Shown on the left of the drag-to-compare slider.' }) %>
+      <%- include('_drop', { name: 'afterImage', label: 'After image', value: item.afterImage || '', hint: 'Your redesign. Shown on the right.' }) %>
+      <div class="f">
+        <label for="emailRef">Or compare using a design from the gallery</label>
+        <select id="emailRef" name="emailRef">
+          <option value="">None</option>
+          <% emails.forEach(function(m){ %>
+            <option value="<%= m.id %>" <%= item.emailRef===m.id ? 'selected' : '' %>><%= m.cat %> — <%= m.subject %></option>
+          <% }); %>
+        </select>
+        <p class="hint">Used only where you have not uploaded before/after images.</p>
+      </div>
+    </div>
+
+    <div class="acts">
+      <button class="btn btn-fill" type="submit"><%= mode === 'new' ? 'Add case study' : 'Save changes' %></button>
+      <a class="mini" href="/admin/cases">Cancel</a>
+    </div>
+  </form>
+<%- include('_foot') %>

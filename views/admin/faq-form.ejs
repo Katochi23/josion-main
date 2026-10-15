@@ -1,0 +1,28 @@
+<%- include('_head', { title: mode === 'new' ? 'New question' : 'Edit question' }) %>
+<%- include('_shell') %>
+  <div class="adm-head">
+    <div>
+      <h1><%= mode === 'new' ? 'New question' : 'Edit question' %></h1>
+      <p>Write the answer the way you would say it out loud. The same <code>**bold**</code> and <code>*blue*</code> formatting works here.</p>
+    </div>
+    <a class="mini" href="/admin/faqs">Back to list</a>
+  </div>
+
+  <form class="form" method="post" action="<%= mode === 'new' ? '/admin/faqs' : '/admin/faqs/' + item.id %>">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <div class="fset">
+      <div class="f">
+        <label for="q">Question</label>
+        <input type="text" id="q" name="q" value="<%= item.q || '' %>" required placeholder="How long before we see anything?">
+      </div>
+      <div class="f">
+        <label for="a">Answer</label>
+        <textarea id="a" name="a" rows="5" placeholder="Be specific. A vague answer here costs you the call."><%= item.a || '' %></textarea>
+      </div>
+    </div>
+    <div class="acts">
+      <button class="btn btn-fill" type="submit"><%= mode === 'new' ? 'Add question' : 'Save changes' %></button>
+      <a class="mini" href="/admin/faqs">Cancel</a>
+    </div>
+  </form>
+<%- include('_foot') %>

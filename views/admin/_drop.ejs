@@ -1,0 +1,15 @@
+<div class="f">
+  <label for="<%= name %>"><%= label %></label>
+  <div class="drop">
+    <div class="prev">
+      <% if (value) { %><img src="<%= value %>" alt=""><% } else { %><span>none</span><% } %>
+    </div>
+    <div>
+      <input type="file" id="<%= name %>" name="<%= name %>" accept="image/*">
+      <% if (locals.hint) { %><p class="hint" style="margin:6px 0 0"><%= locals.hint %></p><% } %>
+      <% if (value) { %>
+        <label class="rm"><input type="checkbox" name="<%= name %>__remove" value="1"> Remove current image</label>
+      <% } %>
+    </div>
+  </div>
+</div>

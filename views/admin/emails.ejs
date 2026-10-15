@@ -1,0 +1,39 @@
+<%- include('_head', { title: 'Email designs' }) %>
+<%- include('_shell') %>
+  <div class="adm-head">
+    <div>
+      <h1>Email designs</h1>
+      <p>The gallery visitors scroll through. Upload a full-length screenshot of the email — tall images are fine, the tile crops and the pop-up shows it whole.</p>
+    </div>
+    <a class="btn btn-fill btn-sm" href="/admin/emails/new">Add design</a>
+  </div>
+
+  <div class="rows">
+    <% if (!emails.length) { %>
+      <p class="empty">No email designs yet.</p>
+    <% } %>
+    <% emails.forEach(function(m, i){ %>
+      <div class="row">
+        <div class="row-thumb">
+          <% if (m.image) { %><img src="<%= m.image %>" alt=""><% } else { %><span>Coded<br>mock-up</span><% } %>
+        </div>
+        <div>
+          <h3><%= m.subject %></h3>
+          <p><%= m.cat %><%= m.mobileImage ? ' · has mobile version' : '' %></p>
+        </div>
+        <div class="row-acts">
+          <form method="post" action="/admin/emails/<%= m.id %>/move">
+            <input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="dir" value="up">
+            <button class="mini" <%= i===0 ? 'disabled' : '' %> aria-label="Move up">&uarr;</button></form>
+          <form method="post" action="/admin/emails/<%= m.id %>/move">
+            <input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="dir" value="down">
+            <button class="mini" <%= i===emails.length-1 ? 'disabled' : '' %> aria-label="Move down">&darr;</button></form>
+          <a class="mini" href="/admin/emails/<%= m.id %>/edit">Edit</a>
+          <form method="post" action="/admin/emails/<%= m.id %>/delete" onsubmit="return confirm('Delete this design?')">
+            <input type="hidden" name="_csrf" value="<%= csrf %>">
+            <button class="mini mini-bad" type="submit">Delete</button></form>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+<%- include('_foot') %>
